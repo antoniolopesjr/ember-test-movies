@@ -11343,17 +11343,6 @@ button {
   font-weight: 400;
   font-style: normal;
 }
-.movie .map {
-  flex-grow: 0;
-  flex-basis: 150px;
-  font-size: 0;
-  margin: 0px 25px;
-}
-
-.movie .map img {
-  width: 150px;
-  height: 150px;
-}
 
 .movie.detailed {
   background: none;
@@ -11390,12 +11379,12 @@ button {
   flex-shrink: 1;
 }
 
-.movie.detailed .map {
+.movie.detailed .movies {
   flex-basis: 100%;
   margin: 50px 25px 25px 25px;
 }
 
-.movie.detailed .map img {
+.movie.detailed .movies img {
   width: 100%;
   height: auto;
 }
@@ -11424,7 +11413,7 @@ button {
     opacity: 0.1;
   }
 
-  .movie.detailed .map {
+  .movie.detailed .movies {
     margin-top: 25px;
   }
 }
@@ -11432,7 +11421,27 @@ button {
 .footer-background{
   background-color: #8dc2fc;
 }
+.movie .movies {
+  flex-grow: 0;
+  flex-basis: 150px;
+  font-size: 0;
+  margin: 0px 25px;
+}
+
+.movie .movies img {
+  width: 150px;
+  height: 150px;
+}
+.movie.detailed .movies {
+  flex-basis: 100%;
+  margin: 50px 25px 25px 25px;
+}
+
+.movie.detailed .movies img {
+  width: 100%;
+  height: auto;
+}
 
 
 
-/*# sourceMappingURL=bootstrap.min.css.map */
+/*# sourceMappingURL=bootstrap.min.css.movies */
