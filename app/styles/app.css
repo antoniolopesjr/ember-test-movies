@@ -11519,8 +11519,15 @@ h5,
   top: -25px;
   right: -20px;
 }
+.left {
+  float: left;
+}
 
-.tomster {
+.right {
+  float: right;
+}
+
+.movie-logo {
   background: url(../assets/images/movies.png);
   background-size: contain;
   background-repeat: no-repeat;
