@@ -1,29 +1,21 @@
 <article class="movie">
   <Movies::Image 
-    src={{@movies.image}}
-    alt="A picture of {{@movies.title}}"
+    src="https://image.tmdb.org/t/p/w500{{@movies.poster_path}}"
+    alt="A picture of {{@movies.original_title}}"
     />
   <div class="details">
     <h3>{{@movies.title}}</h3>
-    <div class="detail name">
-      <span>Name:</span> {{@movies.owner}}
+    <div class="detail overview">
+      <span>Overview:</span> {{@movies.overview}}
     </div>
     <div class="detail genre">
-      <span>Genre:</span> {{@movies.type}}
+      <span>Genre:</span> {{@movies.genre_ids}}
     </div>
-    <div class="detail release-date">
-      <span>Release Date:</span> {{@movies.city}}
+    <br><div class="detail release-date">
+      <span>Release Date:</span> {{@movies.release_date}}
     </div>
     <div class="detail language">
-      <span>Language:</span> {{@movies.bedrooms}}
+      <span>Language:</span> {{@movies.original_language}}
     </div>
   </div>
-  <Movieimg 
-    @lat={{@movies.location.lat}}
-    @lng={{@movies.location.lng}}
-    @zoom="9"
-    @width="150"
-    @height="150"
-    alt="A map of {{@movies.title}}"
-    />
 </article>
