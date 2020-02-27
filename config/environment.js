@@ -47,7 +47,7 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
-  ENV.MOVIEDB_ACCESS_TOKEN = 'c5850ed73901b8d268d0898a8a9d8bff';
+  ENV.MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiYW50b25pb2xvcGVzanIiLCJhIjoiY2s2dG9kejJvMDFheTNucnZjdmxkdm8xNSJ9.3CZoMdMSQ_pCWmSYQE70uw';
 
   return ENV;
 };

@@ -11379,12 +11379,12 @@ button {
   flex-shrink: 1;
 }
 
-.movie.detailed .movies {
+.movie.detailed .moviesImg {
   flex-basis: 100%;
   margin: 50px 25px 25px 25px;
 }
 
-.movie.detailed .movies img {
+.movie.detailed .moviesImg img {
   width: 100%;
   height: auto;
 }
@@ -11413,7 +11413,7 @@ button {
     opacity: 0.1;
   }
 
-  .movie.detailed .movies {
+  .movie.detailed .moviesImg {
     margin-top: 25px;
   }
 }
@@ -11421,27 +11421,27 @@ button {
 .footer-background{
   background-color: #8dc2fc;
 }
-.movie .movies {
+.movie .moviesImg {
   flex-grow: 0;
   flex-basis: 150px;
   font-size: 0;
   margin: 0px 25px;
 }
 
-.movie .movies img {
+.movie .moviesImg img {
   width: 150px;
   height: 150px;
 }
-.movie.detailed .movies {
+.movie.detailed .moviesImg {
   flex-basis: 100%;
   margin: 50px 25px 25px 25px;
 }
 
-.movie.detailed .movies img {
+.movie.detailed .moviesImg img {
   width: 100%;
   height: auto;
 }
 
 
 
-/*# sourceMappingURL=bootstrap.min.css.movies */
+/*# sourceMappingURL=bootstrap.min.css.moviesImg */
