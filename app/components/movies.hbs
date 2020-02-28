@@ -1,21 +1,25 @@
-<article class="movie">
+<div class="card mb-4 box-shadow">
+  <div class="card-body">
   <Movies::Image 
     src="https://image.tmdb.org/t/p/w500{{@movies.poster_path}}"
     alt="A picture of {{@movies.original_title}}"
     />
-  <div class="details">
-    <h3>{{@movies.title}}</h3>
-    <div class="detail genre">
-      <span>Overview:</span> {{@movies.overview}}
+  
+    <h3 class="card-title">{{@movies.title}}</h3>
+    <div class="card-text">
+      <span><b>Overview:</b></span> {{@movies.overview}}
     </div>
-    <div class="detail genre">
-      <span>Genre:</span> {{@movies.genre_ids}}
+    <div class="card-text">
+      <span><b>Popularity:</b></span> {{@movies.popularity}}
     </div>
-    <div class="detail release-date">
-      <span>Release Date:</span> {{@movies.release_date}}
+    <div class="card-text">
+      <span><b>Release Date:</b></span> {{@movies.release_date}}
     </div>
-    <div class="detail language">
-      <span>Language:</span> {{@movies.original_language}}
+    <div class="card-text">
+      <span><b>Language:</b></span> {{@movies.original_language}}
     </div>
   </div>
-</article>
+</div>
+
+
+

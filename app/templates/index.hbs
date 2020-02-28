@@ -5,10 +5,12 @@
   <LinkTo @route="contact" class="button">Contact Us</LinkTo>
 </Jumbo>
 
-<div class="movies">
-  <ul class="results">
-    {{#each @model as |movies|}}
-    <li><Movies @movies={{movies}} /></li>
-    {{/each}}
-  </ul>
+<div class="container">
+    <div class="row">
+      <div class="col-md-5">
+          {{#each @model as |movies|}}
+          <Movies @movies={{movies}} />
+          {{/each}}
+      </div>
+    </div>
 </div>
