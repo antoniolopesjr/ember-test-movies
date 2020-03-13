@@ -1,10 +1,8 @@
 <div class="card mb-4 box-shadow">
   <div class="card-body">
-  <Movies::Image 
-    src="https://image.tmdb.org/t/p/w500{{@movies.poster_path}}"
-    alt="A picture of {{@movies.original_title}}"
-    />
-  
+    <Movies::Image src="https://image.tmdb.org/t/p/w500{{@movies.poster_path}}"
+      alt="A picture of {{@movies.original_title}}" />
+
     <h3>
       <LinkTo @route="movie" @model={{@movies}}>
         {{@movies.title}}
@@ -24,8 +22,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
