@@ -5,7 +5,11 @@
     alt="A picture of {{@movies.original_title}}"
     />
   
-    <h3 class="card-title">{{@movies.title}}</h3>
+    <h3>
+      <LinkTo @route="movie" @model={{@movies}}>
+        {{@movies.title}}
+      </LinkTo>
+    </h3>
     <div class="card-text">
       <span><b>Overview:</b></span> {{@movies.overview}}
     </div>
@@ -20,6 +24,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
