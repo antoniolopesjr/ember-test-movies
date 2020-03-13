@@ -1,7 +1,7 @@
 <Jumbo>
   <h2>{{@movie.title}}</h2>
   <p>This page contains the overview about the movie <b>{{@movie.title}}</b></p>
-  <a href="#" target="_blank" rel="external nofollow noopener noreferrer" class="share button">
+  <a href="" target="_blank" rel="external nofollow noopener noreferrer" class="share button">
     Share on Twitter
   </a>
   <LinkTo @route="index" class="button">Back to Home</LinkTo>
@@ -9,7 +9,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-10">
       <div class="card mb-4 box-shadow">
         <div class="card-body">
           <Movies::Image src="https://image.tmdb.org/t/p/w500{{@movie.poster_path}}"
