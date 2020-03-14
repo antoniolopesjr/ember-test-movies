@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
-
 export default class MovieRoute extends Route {
+
   async model(params) {
     let receiveModel = params.movie_id;
     let modelStringify = JSON.stringify(receiveModel);
@@ -10,16 +10,50 @@ export default class MovieRoute extends Route {
 
     let response = await fetch(jsonString);
     let results = await response.json();
-
     //let jsonStringlike = JSON.stringify(results);
 
-    //let data = results.genres.get('firstObject');
-    let data = results.genres[0];
-    
-    window.console.log(data.name);
+    let genre = results.genres[0].name;
+    let imdbTitle = results.imdb_id;
+
+    var language, tagLine;
+
+    let spokenLanguage = results.original_language;
+    let tag = results.tagline;
+    if (tag !== null) {
+      tagLine = tag;
+    } else tagLine = '...'
+
+    if (spokenLanguage == 'en') {
+      language = 'English';
+    } else if (spokenLanguage == 'fr') {
+      language = 'French';
+    } else if (spokenLanguage == 'ja') {
+      language = 'Japanese';
+    } else if (spokenLanguage == 'ru') {
+      language = 'Russian';
+    } else if (spokenLanguage == 'pl') {
+      language = 'Polish';
+    } else if (spokenLanguage == 'it') {
+      language = 'Italian';
+    } else if (spokenLanguage == 'es') {
+      language = 'Spanish';
+    } else if (spokenLanguage == 'tl') {
+      language = 'Thai';
+    } else if (spokenLanguage == 'ko') {
+      language = 'Korean';
+    } else language = 'English';
+
+    //window.console.log(spokenLanguage);
+    //window.console.log(typeof spokenLanguage);
+
 
     return {
-      data, ...results
+      genre,
+      language,
+      imdbTitle,
+      tagLine,
+      ...results
     };
+
   }
 }

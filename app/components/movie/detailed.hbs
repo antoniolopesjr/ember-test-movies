@@ -31,10 +31,22 @@
                   <span><b>Release Date:</b></span> {{@movie.release_date}}
                 </div>
                 <div class="card-text">
-                  <span><b>Language:</b></span> {{@movie.original_language}}
+                  <span><b>Language:</b></span> {{@movie.language}}
                 </div>
                 <div class="card-text">
-                  <span><b>Genre:</b></span> {{@movie.data.name}}
+                  <span><b>Genre:</b></span> {{@movie.genre}}
+                </div>
+                <div class="card-text">
+                  <span><b>Status:</b></span> {{@movie.status}}
+                </div>
+                <div class="card-text">
+                  <span><b>Vote avarage:</b></span> {{@movie.vote_average}}
+                </div>
+                <div class="card-text">
+                  <span><b>Tagline:</b></span> {{@movie.tagLine}}
+                </div>
+                <div class="card-text">
+                  <b>IMDB:</b><a href="https://www.imdb.com/title/{{@movie.imdbTitle}}" target="_blank" rel="external nofollow noopener noreferrer"> https://www.imdb.com/title/{{@movie.imdbTitle}}</a>
                 </div>
               </div>
             </div>
