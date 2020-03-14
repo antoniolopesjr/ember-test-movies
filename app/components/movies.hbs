@@ -1,25 +1,32 @@
 <div class="card mb-4 box-shadow">
   <div class="card-body">
-    <Movies::Image src="https://image.tmdb.org/t/p/w500{{@movies.poster_path}}"
-      alt="A picture of {{@movies.original_title}}" 
-        />
-
-    <h3>
-      <LinkTo @route="movie" @model={{@movies}}>
-        {{@movies.title}}
-      </LinkTo>
-    </h3>
-    <div class="card-text">
-      <span><b>Overview:</b></span> {{@movies.overview}}
-    </div>
-    <div class="card-text">
-      <span><b>Popularity:</b></span> {{@movies.popularity}}
-    </div>
-    <div class="card-text">
-      <span><b>Release Date:</b></span> {{@movies.release_date}}
-    </div>
-    <div class="card-text">
-      <span><b>Language:</b></span> {{@movies.original_language}}
+    <div class="row">
+      <div class="col-md-4">
+        <Movies::Image src="https://image.tmdb.org/t/p/w500{{@movies.poster_path}}"
+          alt="A picture of {{@movies.original_title}}" />
+      </div>
+      <div class="col-md-7">
+        <div class="movie-info">
+          <h3>
+            <LinkTo @route="movie" @model={{@movies}}>
+              {{@movies.title}}
+            </LinkTo>
+          </h3>
+          <div class="card-text">
+            <span><b>Overview:</b></span> {{@movies.overview}}
+          </div>
+          <div class="card-text">
+            <span><b>Popularity:</b></span> {{@movies.popularity}}
+          </div>
+          <div class="card-text">
+            <span><b>Release Date:</b></span> {{@movies.release_date}}
+          </div>
+          <div class="card-text">
+            <span><b>Language:</b></span> {{@movies.original_language}}
+          </div>
+            <LinkTo @route="movie" @model={{@movies}} class="button">More information</LinkTo>
+        </div>
+      </div>
     </div>
   </div>
 </div>

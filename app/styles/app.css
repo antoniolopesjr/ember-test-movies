@@ -590,7 +590,24 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto
+  margin-left: auto;
+  background: #f6f6f6;
+}
+
+.navbar .container,
+.navbar .container-fluid,
+.navbar .container-sm,
+.navbar .container-md,
+.navbar .container-lg,
+.navbar .container-xl {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 /*@media (min-width:576px) {
@@ -5024,7 +5041,7 @@ tbody.collapse.show {
 }
 
 .card-img-top img {
-  width: 50%;
+  width: 90%;
   height: 50%;
   border-radius: 5px;
 }
@@ -5058,13 +5075,19 @@ tbody.collapse.show {
 .card-img-top {
   width: 100%;
   border-top-left-radius: calc(.25rem - 1px);
-  border-top-right-radius: calc(.25rem - 1px)
+  border-top-right-radius: calc(.25rem - 1px);
+  float: left;
+}
+
+.movie-info{
+  overflow: visible;
+  float: right;
 }
 
 .card-img-bottom {
   width: 100%;
   border-bottom-right-radius: calc(.25rem - 1px);
-  border-bottom-left-radius: calc(.25rem - 1px)
+  border-bottom-left-radius: calc(.25rem - 1px);
 }
 
 .card-deck {
