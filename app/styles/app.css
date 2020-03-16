@@ -4987,6 +4987,11 @@ tbody.collapse.show {
     margin: 5px 5px 5px 5px;
     font-size: 1.2rem;
   }
+  .card-img-top img {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+  }
 }
 
 .card-link:hover {

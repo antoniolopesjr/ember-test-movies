@@ -8,7 +8,10 @@ export default class IndexRoute extends Route {
     return results.map(model => {
       let results = model;
 
-      var language, tagLine;
+      var language, tagLine, id, rawId;
+
+      rawId = results.id;
+      id = JSON.stringify(rawId);
 
       let imdbTitle = results.imdb_id;
       let tag = results.tagline;
@@ -41,7 +44,8 @@ export default class IndexRoute extends Route {
       //window.console.log(spokenLanguage);
       //window.console.log(typeof spokenLanguage);
 
-      return {  
+      return {
+        id,  
         language,
         imdbTitle,
         tagLine,
