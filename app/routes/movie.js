@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+
 export default class MovieRoute extends Route {
 
   async model(params) {
