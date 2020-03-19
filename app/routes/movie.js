@@ -4,9 +4,6 @@ export default class MovieRoute extends Route {
 
   async model(id) {
     let receiveModel = id.id;
-    
-    //let modelStringify = JSON.stringify(receiveModel);
-    //let movie_id_OK = modelStringify.replace(/[\\"]/g, '');
 
     let jsonString = 'https://api.themoviedb.org/3/movie/' + receiveModel + '?api_key=c5850ed73901b8d268d0898a8a9d8bff&language=en-US';
 
