@@ -14,38 +14,38 @@
           <div class="row">
             <div class="col-md-4">
               <Movies::Image src="https://image.tmdb.org/t/p/w500{{@movie.poster_path}}"
-                alt="A picture of {{@movie.original_title}}" />
+                alt="A picture of {{@movie.original_title}}" {{fade-up delay=400}}/>
             </div>
             <div class="col-md-7">
               <div class="movie-info">
-                <h3>              
+                <h3 {{fade-up delay=150}}>              
                     {{@movie.title}}
                 </h3>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=200}}>
                   <span><b>Overview:</b></span> {{@movie.overview}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=250}}>
                   <span><b>Popularity:</b></span> {{@movie.popularity}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=300}}>
                   <span><b>Release Date:</b></span> {{@movie.release_date}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=350}}>
                   <span><b>Language:</b></span> {{@movie.language}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=400}}>
                   <span><b>Genre:</b></span> {{@movie.genre}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=450}}>
                   <span><b>Status:</b></span> {{@movie.status}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=500}}>
                   <span><b>Vote avarage:</b></span> {{@movie.vote_average}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=550}}>
                   <span><b>Tagline:</b></span> {{@movie.tagLine}}
                 </div>
-                <div class="card-text">
+                <div class="card-text" {{fade-up delay=600}}>
                   <b>IMDB:</b><a href="https://www.imdb.com/title/{{@movie.imdbTitle}}" target="_blank" rel="external nofollow noopener noreferrer"> https://www.imdb.com/title/{{@movie.imdbTitle}}</a>
                 </div>
               </div>
