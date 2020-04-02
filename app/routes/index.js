@@ -1,11 +1,6 @@
 import Route from '@ember/routing/route';
-import {
-  tracked
-} from '@glimmer/tracking';
 
 export default class IndexRoute extends Route {
-  @tracked isLoading = true;
-
   async model() {
     let response = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=c5850ed73901b8d268d0898a8a9d8bff&language=en-US&page=1');
     let { results } = await response.json();
@@ -48,7 +43,6 @@ export default class IndexRoute extends Route {
 
       //window.console.log(spokenLanguage);
       //window.console.log(typeof spokenLanguage);
-      this.isLoading = false;
 
       return {
         id,  
