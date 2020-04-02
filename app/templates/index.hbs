@@ -1,20 +1,33 @@
-<Jumbo>
-  <h2 {{fade-up delay=50}}>Welcome to Movies Test API!</h2>
-  <p {{fade-up delay=100}}>This is just a test of Emberjs Framework</p>
-  <LinkTo @route="contact" class="button" {{fade-up delay=200}}>Contact Us</LinkTo>
-  <Pagination />
+  {{#if this.loadingEvent}}
+
+  <Loading />
+
+  {{else}}
+
+  <Jumbo>
+
+    <h2 {{fade-up delay=50}}>Welcome to Movies Test API!</h2>
+    <p {{fade-up delay=100}}>This is just a test of Emberjs Framework</p>
+    <p>Page {{this.page}}</p>
+
+    <button type="button" class="button" {{on "click" (fn this.previousPage)}}>Prev</button>
+    <button type="button" class="button" {{on "click" (fn this.nextPage)}}>Next</button>
+    <!--<button type="button" class="button" {{on "click" (fn this.changeLoading)}}>loading</button> -->
+
+  </Jumbo>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {{#each @model as |movies|}}
+        <Movies @movies={{movies}} />
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <p>Page {{this.page}}</p>
 
   <button type="button" class="button" {{on "click" (fn this.previousPage)}}>Prev</button>
   <button type="button" class="button" {{on "click" (fn this.nextPage)}}>Next</button>
-</Jumbo>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      {{#each @model as |movies|}}
-      <Movies @movies={{movies}} />
-      {{/each}}
-    </div>
-  </div>
-</div>
-
+  {{/if}}

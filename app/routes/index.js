@@ -2,9 +2,11 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
+
 export default class IndexRoute extends Route {
   @service('pagination-movies') pageTest;
   @tracked page = this.pageTest.currentPage;
+
   number= 1;
   size = 2;
 
@@ -14,8 +16,8 @@ export default class IndexRoute extends Route {
     }
   }
 
-
    async model(params) {
+
     let page;
 
     if (params.page) {
@@ -72,8 +74,7 @@ export default class IndexRoute extends Route {
         imdbTitle,
         tagLine,
         ...results,
-        page: {
-          size: this.get('size'),
+        page: {         
           number: this.get('number')
         }
       };
@@ -85,7 +86,6 @@ export default class IndexRoute extends Route {
     
     controller.setProperties({
       number: this.get('number'),
-      size: this.get('size')
     });
   }
 }

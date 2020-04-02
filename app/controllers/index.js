@@ -1,10 +1,17 @@
 import Controller from '@ember/controller';
-import {
+/*import {
   computed
+} from '@ember/object';*/
+import {
+  action
 } from '@ember/object';
-import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
+import {
+  inject as service
+} from '@ember/service';
+import {
+  tracked
+} from '@glimmer/tracking';
+import { later } from '@ember/runloop';
 
 
 
@@ -12,47 +19,50 @@ export default class IndexController extends Controller {
 
   @service('pagination-movies') pageTest;
   @tracked page = this.pageTest.currentPage;
+  @tracked loadingEvent = true;
 
   queryParams = ['page']
 
   page = 1;
 
-  totalPending = computed('model', function () {
-    return this.get('model').get('meta').total;
-  })
+  loading = later(() => {
 
-  hasPreviousPage = computed('number', function () {
-    return this.get('number') > 1;
-  })
+    this.loadingEvent = false;
+  
+  }, 2000);
 
-  hasNextPage = computed('size', 'number', 'totalPending', function () {
-    return (this.get('size') * this.get('number')) < this.get('totalPending');
-  })
 
-    @action
-    previousPage() {
-      let totalPages = Math.ceil(this.get('totalPending') / this.get('number'));
-    
-      if (this.decrementProperty('page') > totalPages) {
-        this.set('page', totalPages);
-      }
+  @action
+  previousPage() {
+
+    if (this.page >= 2) {
       this.pageTest.previousPage();
 
       this.transitionToRoute({
         queryParams: {
-          page: this.get('page')
+          page: this.decrementProperty('page')
         }
       });
-    }
+    } 
+  }
 
-    @action
-    nextPage() {
-    this.pageTest.nextPage();
+  @action
+  nextPage() {
+    if (this.page <= 11) {
+      this.pageTest.nextPage();
       this.transitionToRoute({
         queryParams: {
           page: this.incrementProperty('page')
         }
       });
-    }
-  
+    } 
+  }
+
+  @action
+  changeLoading() {
+    if (this.loadingEvent == false) {
+      this.loadingEvent = true;
+    } else this.loadingEvent = false;
+  }
+
 }
