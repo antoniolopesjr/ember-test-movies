@@ -1,3 +1,9 @@
+{{#if this.isLoading}}
+
+<Loading />
+
+{{else}}
+
 <Jumbo>
   <h2 {{fade-up delay=50}}>Welcome to Movies Test API!</h2>
   <p {{fade-up delay=100}}>This is just a test of Emberjs Framework</p>
@@ -14,3 +20,5 @@
     </div>
   </div>
 </div>
+
+{{/if}}
