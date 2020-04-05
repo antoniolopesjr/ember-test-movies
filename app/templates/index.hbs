@@ -5,14 +5,43 @@
   {{else}}
 
   <Jumbo>
+    <p>Language</p>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">English</a></li>
+        <li class="page-item"><a class="page-link" href="#">Português</a></li>
+      </ul>
+    </nav>
 
     <h2 {{fade-up delay=50}}>Welcome to Movies Test API!</h2>
     <p {{fade-up delay=100}}>This is just a test of Emberjs Framework</p>
     <p>Page {{this.page}}</p>
 
-    <button type="button" class="button" {{on "click" (fn this.previousPage)}}>Prev</button>
-    <button type="button" class="button" {{on "click" (fn this.nextPage)}}>Next</button>
-    <!--<button type="button" class="button" {{on "click" (fn this.changeLoading)}}>loading</button> -->
+    {{!--<button type="button" class="button btn" {{on "click" (fn this.previousPage)}}>Prev</button>
+    <button type="button" class="button btn" {{on "click" (fn this.nextPage)}}>Next</button>--}}
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li id="paginationPrev" class={{if this.isPagePrev "page-item disabled" "page-item"}}>
+          <button type="button" class="page-link"  tabindex="-1" {{on "click" (fn this.previousPage)}}>Previous</button>
+        </li>
+        {{!--<li class={{if this.isPage1 "page-item active" "page-item"}}><button id="pagination1" type="button" class="page-link">1</button></li>
+        <li class={{if this.isPage2 "page-item active" "page-item"}}><button id="pagination2" type="button" class="page-link" >2</button></li>
+        <li class={{if this.isPage3 "page-item active" "page-item"}}><button id="pagination3" type="button" class="page-link" >3</button></li>
+        <li class={{if this.isPage4 "page-item active" "page-item"}}><button id="pagination4" type="button" class="page-link" >4</button></li>
+        <li class={{if this.isPage5 "page-item active" "page-item"}}><button id="pagination5" type="button" class="page-link" >5</button></li>
+        <li class={{if this.isPage6 "page-item active" "page-item"}}><button id="pagination6" type="button" class="page-link" >6</button></li>
+        <li class={{if this.isPage7 "page-item active" "page-item"}}><button id="pagination7" type="button" class="page-link" >7</button></li>
+        <li class={{if this.isPage8 "page-item active" "page-item"}}><button id="pagination8" type="button" class="page-link" >8</button></li>
+        <li class={{if this.isPage9 "page-item active" "page-item"}}><button id="pagination9" type="button" class="page-link" >9</button></li>
+        <li class={{if this.isPage10 "page-item active" "page-item"}}><button id="pagination10" type="button" class="page-link" >10</button></li>
+        <li class={{if this.isPage11 "page-item active" "page-item"}}><button id="pagination11" type="button" class="page-link" >11</button></li>
+        <li class={{if this.isPage12 "page-item active" "page-item"}}><button id="pagination12" type="button" class="page-link" >12</button></li>--}}
+        <li class={{if this.isPageNext "page-item disabled" "page-item"}}>
+          <button id="paginationNext" type="button" class="page-link" href="" {{on "click" (fn this.nextPage)}}>Next</button>
+        </li>
+      </ul>
+    </nav>
 
   </Jumbo>
 
@@ -25,9 +54,32 @@
       </div>
     </div>
   </div>
+  <Jumbo>
+
   <p>Page {{this.page}}</p>
 
-  <button type="button" class="button" {{on "click" (fn this.previousPage)}}>Prev</button>
-  <button type="button" class="button" {{on "click" (fn this.nextPage)}}>Next</button>
+  <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li id="paginationPrev" class={{if this.isPagePrev "page-item disabled" "page-item"}}>
+          <button type="button" class="page-link"  tabindex="-1" {{on "click" (fn this.previousPage)}}>Previous</button>
+        </li>
+        {{!--<li class={{if this.isPage1 "page-item active" "page-item"}}><button id="pagination1" type="button" class="page-link">1</button></li>
+        <li class={{if this.isPage2 "page-item active" "page-item"}}><button id="pagination2" type="button" class="page-link" >2</button></li>
+        <li class={{if this.isPage3 "page-item active" "page-item"}}><button id="pagination3" type="button" class="page-link" >3</button></li>
+        <li class={{if this.isPage4 "page-item active" "page-item"}}><button id="pagination4" type="button" class="page-link" >4</button></li>
+        <li class={{if this.isPage5 "page-item active" "page-item"}}><button id="pagination5" type="button" class="page-link" >5</button></li>
+        <li class={{if this.isPage6 "page-item active" "page-item"}}><button id="pagination6" type="button" class="page-link" >6</button></li>
+        <li class={{if this.isPage7 "page-item active" "page-item"}}><button id="pagination7" type="button" class="page-link" >7</button></li>
+        <li class={{if this.isPage8 "page-item active" "page-item"}}><button id="pagination8" type="button" class="page-link" >8</button></li>
+        <li class={{if this.isPage9 "page-item active" "page-item"}}><button id="pagination9" type="button" class="page-link" >9</button></li>
+        <li class={{if this.isPage10 "page-item active" "page-item"}}><button id="pagination10" type="button" class="page-link" >10</button></li>
+        <li class={{if this.isPage11 "page-item active" "page-item"}}><button id="pagination11" type="button" class="page-link" >11</button></li>
+        <li class={{if this.isPage12 "page-item active" "page-item"}}><button id="pagination12" type="button" class="page-link" >12</button></li>--}}
+        <li class={{if this.isPageNext "page-item disabled" "page-item"}}>
+          <button id="paginationNext" type="button" class="page-link" href="" {{on "click" (fn this.nextPage)}}>Next</button>
+        </li>
+      </ul>
+    </nav>
+  </Jumbo>
 
   {{/if}}

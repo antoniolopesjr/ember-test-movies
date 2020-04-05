@@ -8,7 +8,6 @@ export default class IndexRoute extends Route {
   @tracked page = this.pageTest.currentPage;
 
   number= 1;
-  size = 2;
 
   queryParams = {
     page: {

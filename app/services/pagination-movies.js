@@ -7,12 +7,14 @@ export default class PaginationMoviesService extends Service {
     nextPage() {
         if (this.currentPage <= 12){
             this.currentPage++;
+            window.console.log(this.currentPage);
         }
     }
 
     previousPage() {
         if (this.currentPage > 1){
             this.currentPage--;
+            window.console.log(this.currentPage);
         }
     }
 }
