@@ -7,8 +7,13 @@ import { later } from '@ember/runloop';
 
 export default class IndexController extends Controller {
 
+  languageEn = 'en-US';
+  languagePt = 'pt-BR';
+
   @service('pagination-movies') pageTest;
-  //@tracked page = this.pageTest.currentPage;
+  @service('language') langTest;
+ 
+  @tracked currentLang = this.langTest.currentLanguage;
   @tracked loadingEvent = true;
   @tracked isPageNext = false;
   @tracked isPagePrev = false;
@@ -66,11 +71,37 @@ export default class IndexController extends Controller {
     } 
   }
 
+  /*@action
+  refreshModel() {
+    this.refreshModel();
+  }*/
+
   @action
+  changeLang(){
+    this.langTest.changeLanguage();
+    //window.location.reload();
+    this.refreshModel();
+    //this.send('refreshModel');
+  }
+
+  /*@action
   changeLoading() {
     if (this.loadingEvent == false) {
       this.loadingEvent = true;
     } else this.loadingEvent = false;
-  }
+  }*/
+
+  /*@action
+  changeLang(){
+    if(this.langTest.currentLanguage == 'en-US'){
+      //this.currentLang = this.languagePt;
+      this.langTest.currentLanguage = this.languagePt;
+      window.console.log(this.langTest.currentLanguage);
+    }
+    if(this.langTest.currentLanguage == 'pt-BR'){
+      //this.currentLang = this.languageEn;
+      window.console.log(this.langTest.currentLanguage);
+    }
+  }*/
 
 }

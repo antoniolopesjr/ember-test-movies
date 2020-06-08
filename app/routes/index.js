@@ -1,11 +1,14 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
 
 
 export default class IndexRoute extends Route {
   @service('pagination-movies') pageTest;
-  @tracked page = this.pageTest.currentPage;
+  @service('language') langTest;
+  @tracked currentLang = this.langTest.currentLanguage;
 
   number= 1;
 
@@ -25,7 +28,7 @@ export default class IndexRoute extends Route {
       this.set('number', page);
     }
 
-    let response =  await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=c5850ed73901b8d268d0898a8a9d8bff&language=en-US&page='+page);
+    let response =  await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=c5850ed73901b8d268d0898a8a9d8bff&language='+this.currentLang +'&page='+page);
     let { results } =  await response.json();
 
     return results.map(model => {
@@ -78,6 +81,18 @@ export default class IndexRoute extends Route {
         }
       };
     });
+  }
+
+  @action
+  refreshModel() {
+    this.refreshModel();
+  }
+
+  @action
+  changeLang(){
+    this.langTest.changeLanguage();
+    //window.location.reload();
+    this.send('refreshModel');
   }
 
   setupController(controller, model) {
