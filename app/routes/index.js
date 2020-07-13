@@ -1,7 +1,13 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import {
+  inject as service
+} from '@ember/service';
+import {
+  tracked
+} from '@glimmer/tracking';
+import {
+  action
+} from '@ember/object';
 
 
 
@@ -10,7 +16,7 @@ export default class IndexRoute extends Route {
   @service('language') langTest;
   @tracked currentLang = this.langTest.currentLanguage;
 
-  number= 1;
+  number = 1;
 
   queryParams = {
     page: {
@@ -18,7 +24,7 @@ export default class IndexRoute extends Route {
     }
   }
 
-   async model(params) {
+  async model(params) {
 
     let page;
 
@@ -28,8 +34,10 @@ export default class IndexRoute extends Route {
       this.set('number', page);
     }
 
-    let response =  await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=c5850ed73901b8d268d0898a8a9d8bff&language='+this.currentLang +'&page='+page);
-    let { results } =  await response.json();
+    let response = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=c5850ed73901b8d268d0898a8a9d8bff&language=' + this.currentLang + '&page=' + page);
+    let {
+      results
+    } = await response.json();
 
     return results.map(model => {
       let results = model;
@@ -76,7 +84,7 @@ export default class IndexRoute extends Route {
         imdbTitle,
         tagLine,
         ...results,
-        page: {         
+        page: {
           number: this.get('number')
         }
       };
@@ -89,7 +97,7 @@ export default class IndexRoute extends Route {
   }
 
   @action
-  changeLang(){
+  changeLang() {
     this.langTest.changeLanguage();
     //window.location.reload();
     this.send('refreshModel');
@@ -97,7 +105,7 @@ export default class IndexRoute extends Route {
 
   setupController(controller, model) {
     controller.set('model', model);
-    
+
     controller.setProperties({
       number: this.get('number'),
     });
