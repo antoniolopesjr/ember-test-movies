@@ -1,39 +1,27 @@
-import Controller from '@ember/controller';
-import {
-  action
-} from '@ember/object';
-import {
-  inject as service
-} from '@ember/service';
-import {
-  tracked
-} from '@glimmer/tracking';
-import {
-  later
-} from '@ember/runloop';
-
+import Controller from "@ember/controller";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
+import { later } from "@ember/runloop";
 
 export default class IndexController extends Controller {
+  languageEn = "en-US";
+  languagePt = "pt-BR";
 
-  languageEn = 'en-US';
-  languagePt = 'pt-BR';
-
-  @service('pagination-movies') pageTest;
-  @service('language') langTest;
+  @service("pagination-movies") pageTest;
+  @service("language") langTest;
 
   @tracked currentLang = this.langTest.currentLanguage;
   @tracked loadingEvent = true;
   @tracked isPageNext = false;
   @tracked isPagePrev = false;
 
-  queryParams = ['page']
+  queryParams = ["page"];
 
   page = 1;
 
   loading = later(() => {
-
     this.loadingEvent = false;
-
   }, 2000);
 
   @action
@@ -49,7 +37,6 @@ export default class IndexController extends Controller {
     }
   }
 
-
   @action
   previousPage() {
     if (this.page >= 2) {
@@ -57,8 +44,8 @@ export default class IndexController extends Controller {
       this.lookUpPagination();
       this.transitionToRoute({
         queryParams: {
-          page: this.decrementProperty('page')
-        }
+          page: this.decrementProperty("page"),
+        },
       });
     }
   }
@@ -70,13 +57,13 @@ export default class IndexController extends Controller {
       this.lookUpPagination();
       this.transitionToRoute({
         queryParams: {
-          page: this.incrementProperty('page')
-        }
+          page: this.incrementProperty("page"),
+        },
       });
     }
   }
 
-  /*@action
+  /* @action
   refreshModel() {
     this.refreshModel();
   }*/
@@ -89,14 +76,16 @@ export default class IndexController extends Controller {
     //this.send('refreshModel');
   }
 
-  /*@action
+  /*
+  @action
   changeLoading() {
     if (this.loadingEvent == false) {
       this.loadingEvent = true;
     } else this.loadingEvent = false;
   }*/
 
-  /*@action
+  /*
+  @action
   changeLang(){
     if(this.langTest.currentLanguage == 'en-US'){
       //this.currentLang = this.languagePt;
@@ -108,5 +97,4 @@ export default class IndexController extends Controller {
       window.console.log(this.langTest.currentLanguage);
     }
   }*/
-
 }
